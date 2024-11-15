@@ -15,7 +15,7 @@
       <div class="card" th:each="card : ${cards}">
         <h2 th:text="${card.no}">카드 제목</h2>
         <p th:text="${card.title}">카드 내용</p>
-        <p><a class="btn" th:href="${card.url}" target="_blank">링크 텍스트</a></p>
+        <p><a class="btn" th:href="${card.url}" target="_blank">문제 바로가기</a></p>
       </div>
     </div>
   </div>

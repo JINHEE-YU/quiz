@@ -1,11 +1,13 @@
 package com.coding.quiz.solution.q_340213;
 
+import com.coding.quiz.solution.QBase;
+
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @NoArgsConstructor
-public class Q340213 {
+public class Q340213 implements QBase {
 
   public void execute() {
 

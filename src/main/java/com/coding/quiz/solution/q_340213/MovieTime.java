@@ -1,5 +1,7 @@
 package com.coding.quiz.solution.q_340213;
 
+import com.coding.quiz.solution.q_340213.Time;
+
 public class MovieTime {
 
   private Time posT = new Time();
@@ -16,7 +18,7 @@ public class MovieTime {
   }
 
   public void skipOpening() {
-    this.posT = (this.isOpeningTime() ? this.opEndT : this.posT);
+    this.posT.setSeconds(this.isOpeningTime() ? this.opEndT.getSeconds() : this.posT.getSeconds());
   }
 
   public boolean isOpeningTime() {

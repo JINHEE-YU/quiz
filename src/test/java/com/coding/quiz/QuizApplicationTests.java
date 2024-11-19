@@ -5,11 +5,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.coding.quiz.solution.q_340212.Q340212;
 import com.coding.quiz.solution.q_340213.Q340213;
 import com.coding.quiz.solution.q_340213.Solution;
 
 @SpringBootTest
 class QuizApplicationTests {
+
+	@Test
+	void contextQ340212() {
+		// new Q340212().execute();
+
+		assertEquals(3,
+				new Q340212().solution(new int[] { 1, 5, 3 }, new int[] { 2, 4, 7 }, 30));
+
+		assertEquals(2,
+				new Q340212().solution(new int[] { 1, 4, 4, 2 }, new int[] { 6, 3, 8, 2 }, 59));
+
+		assertEquals(294,
+				new Q340212().solution(new int[] { 1, 328, 467, 209, 54 }, new int[] { 2, 7, 1, 4, 3 }, 1723));
+
+		assertEquals(39354,
+				new Q340212().solution(new int[] { 1, 99999, 100000, 99995 }, new int[] { 9999, 9001, 9999, 9001 },
+						3456789012L));
+	}
 
 	@Test
 	void contextQ340213() {

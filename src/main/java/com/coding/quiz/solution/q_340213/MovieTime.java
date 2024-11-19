@@ -13,7 +13,6 @@ public class MovieTime {
     this.posT = new Time(pos);
     this.opStartT = new Time(opStart);
     this.opEndT = new Time(opEnd);
-    skipOpening();
   }
 
   public void skipOpening() {
@@ -25,10 +24,11 @@ public class MovieTime {
   }
 
   public void move(String[] commands) {
+    skipOpening();
     for (String cmd : commands) {
       move(cmd);
+      skipOpening();
     }
-    skipOpening();
   }
 
   public void move(String cmd) {

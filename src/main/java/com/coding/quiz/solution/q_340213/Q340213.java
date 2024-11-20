@@ -5,6 +5,10 @@ import com.coding.quiz.solution.QBase;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+/*
+* [PCCP 기출문제] 1번 / 동영상 재생기
+* - 해결포인트 : 오프닝 넘기기 기능이 매 명령어마다 실행되어야 함. , 깊은 복사
+*/
 @Slf4j
 @NoArgsConstructor
 public class Q340213 implements QBase {

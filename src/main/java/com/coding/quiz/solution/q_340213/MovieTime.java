@@ -1,7 +1,5 @@
 package com.coding.quiz.solution.q_340213;
 
-import com.coding.quiz.solution.q_340213.Time;
-
 public class MovieTime {
 
   private Time posT = new Time();
@@ -18,7 +16,11 @@ public class MovieTime {
   }
 
   public void skipOpening() {
-    this.posT.setSeconds(this.isOpeningTime() ? this.opEndT.getSeconds() : this.posT.getSeconds());
+    try {
+      this.posT = this.isOpeningTime() ? this.opEndT.clone() : this.posT.clone();
+    } catch (CloneNotSupportedException e) {
+      e.printStackTrace();
+    }
   }
 
   public boolean isOpeningTime() {
@@ -38,13 +40,17 @@ public class MovieTime {
       case "next":
         this.posT.add(MOVE_SECOND);
         if (this.posT.getSeconds() > this.videoLenT.getSeconds()) {
-          this.posT.setSeconds(this.videoLenT.getSeconds());
+          try {
+            this.posT = this.videoLenT.clone();
+          } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+          }
         }
         break;
       case "prev":
         this.posT.minus(MOVE_SECOND);
         if (this.posT.getSeconds() < 0) {
-          this.posT.setSeconds(0);
+          this.posT = new Time("00:00");
         }
         break;
       default:

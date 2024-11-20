@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @NoArgsConstructor
-public class Time {
+public class Time implements Cloneable {
   private int seconds = 0;
 
   private String regex = "^(0[0-9]|[1-5][0-9]):([0-5][0-9])$";
@@ -31,10 +31,6 @@ public class Time {
     log.debug("this.seconds: " + this.seconds);
     log.debug("---------------------------");
 
-  }
-
-  public void setSeconds(int seconds) {
-    this.seconds = seconds;
   }
 
   public void add(int addSeconds) {
@@ -60,6 +56,11 @@ public class Time {
     int ss = this.seconds % 60;
     String stringSS = String.format("%2s", Integer.toString(ss)).replace(" ", "0");
     return stringMM + ":" + stringSS;
+  }
+
+  @Override
+  protected Time clone() throws CloneNotSupportedException {
+    return (Time) super.clone();
   }
 
 }

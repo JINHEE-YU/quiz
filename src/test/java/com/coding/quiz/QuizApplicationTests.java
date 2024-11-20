@@ -5,11 +5,36 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.coding.quiz.solution.q_340211.Q340211;
 import com.coding.quiz.solution.q_340212.Q340212;
 import com.coding.quiz.solution.q_340213.Q340213;
 
 @SpringBootTest
 class QuizApplicationTests {
+
+	@Test
+	void contextQ340211() {
+		// new Q340211().main(null);
+
+		int points[][] = null;
+		int routes[][] = null;
+
+		points = new int[][] { { 3, 2 }, { 6, 4 }, { 4, 7 }, { 1, 4 } };
+		routes = new int[][] { { 4, 2 }, { 1, 3 }, { 2, 4 } };
+		assertEquals(1,
+				new com.coding.quiz.solution.q_340211.Solution().solution(points, routes)); // 1
+
+		points = new int[][] { { 3, 2 }, { 6, 4 }, { 4, 7 }, { 1, 4 } };
+		routes = new int[][] { { 4, 2 }, { 1, 3 }, { 4, 2 }, { 4, 3 } };
+		assertEquals(9,
+				new com.coding.quiz.solution.q_340211.Solution().solution(points, routes)); // 9
+
+		points = new int[][] { { 2, 2 }, { 2, 3 }, { 2, 7 }, { 6, 6 }, { 5, 2
+		} };
+		routes = new int[][] { { 2, 3, 4, 5 }, { 1, 3, 4, 5 } };
+		assertEquals(0,
+				new com.coding.quiz.solution.q_340211.Solution().solution(points, routes)); // 0
+	}
 
 	@Test
 	void contextQ340212() {

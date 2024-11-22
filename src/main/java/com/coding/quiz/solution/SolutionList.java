@@ -5,7 +5,8 @@ import lombok.Getter;
 @Getter
 public enum SolutionList {
   Q340213("[PCCP 기출문제] 1번 / 동영상 재생기", "340213", "https://school.programmers.co.kr/learn/courses/30/lessons/340213"),
-  Q340212("PCCP 기출문제] 2번 / 퍼즐 게임 챌린지", "340212", "https://school.programmers.co.kr/learn/courses/30/lessons/340212");
+  Q340212("PCCP 기출문제] 2번 / 퍼즐 게임 챌린지", "340212", "https://school.programmers.co.kr/learn/courses/30/lessons/340212"),
+  Q340211("[PCCP 기출문제] 3번 / 충돌위험 찾기", "340211", "https://school.programmers.co.kr/learn/courses/30/lessons/340211");
 
   private String title;
   private String no;

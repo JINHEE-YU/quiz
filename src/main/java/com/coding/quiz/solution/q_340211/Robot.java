@@ -3,6 +3,8 @@ package com.coding.quiz.solution.q_340211;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
+
 class Robot {
   private Point previousPoint = null;
   private Point nextPoint = null;
@@ -25,6 +27,7 @@ class Robot {
 
       goToNextPoint(nextPoint);
     }
+    System.out.println("Robot history : " + history.toString());
 
   }
 
@@ -48,7 +51,6 @@ class Robot {
 
       history.add(previousPoint.clone());
     }
-    System.out.println("Robot history : " + history.toString());
   }
 
   List<Point> getHistory() {

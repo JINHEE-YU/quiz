@@ -32,35 +32,29 @@ public class Solution {
     }
 
     // 충돌 횟수 구하기
-    int maxMoveCount = 0;
+    int crushCount = 0;
+    HashMap<Integer, HashMap<String, Integer>> historyBySeconds = new HashMap<Integer, HashMap<String, Integer>>();
+
     for (Robot robot : robots) {
-      maxMoveCount = Math.max(maxMoveCount, robot.getHistory().size());
+      List<Point> history = robot.getHistory();
+      // System.out.println("=====");
+      for (int time = 0; time < history.size(); time++) {
+        historyBySeconds.putIfAbsent(time, new HashMap<>());
+        HashMap<String, Integer> historyMap = historyBySeconds.get(time);
+
+        // System.out.println("history.get(time) : " + history.get(time).toString());
+
+        historyMap.put(history.get(time).toString(),
+            historyMap.getOrDefault(history.get(time).toString(), 0) + 1);
+
+        // System.out.println("historyBySeconds.toString() : " +
+        // historyBySeconds.toString());
+      }
+
     }
 
-    int crushCount = 0;
-    int moveIndex = 0;
-    while (moveIndex < maxMoveCount) {
-      HashMap<String, Integer> crushPoints = new HashMap<String, Integer>();
-      for (int i = 0; i < robots.size() - 1; i++) {
-        for (int j = i + 1; j < robots.size(); j++) {
-
-          Point a = null;
-          Point b = null;
-          try {
-            a = robots.get(i).getHistory().get(moveIndex);
-            b = robots.get(j).getHistory().get(moveIndex);
-          } catch (java.lang.IndexOutOfBoundsException e) {
-          }
-          if (Objects.nonNull(a) && Objects.nonNull(b) && a.isEqualTo(b)) {
-            crushPoints.compute(a.toString(), (key, value) -> (Objects.isNull(value) ? 1 : value + 1));
-          }
-        }
-      }
-
-      if (crushPoints.size() > 0) {
-        crushCount = crushCount + crushPoints.size();
-      }
-      moveIndex++;
+    for (HashMap<String, Integer> history : historyBySeconds.values()) {
+      crushCount += history.values().stream().filter(values -> values >= 2).count();
     }
 
     answer = crushCount;

@@ -1,10 +1,15 @@
 package com.coding.quiz.solution.q_340211;
 
-import java.util.HashMap;
-import java.util.Objects;
-
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * [PCCP 기출문제] 3번 / 충돌위험 찾기
+ * - 해결 포인트 : 2차원배열, Map 개념 활용
+ ** > HashMap은 key값이 중복되면 해당 값에 value가 여러개 저장 됨.
+ ** > 지원함수
+ *** // putIfAbsent : 키가 이미 존재? => 기존 유지&반환 : 할당값 저장& null 반환
+ *** // getOrDefault : 키가 이미 존재? => 기존값 반환 : 할당값 저장&반환
+ */
 @Slf4j
 public class Q340211 {
   public static void main(String[] args) {
